@@ -37,8 +37,8 @@
 }
 
 .header .active {
-  border-bottom: 2px solid #239ce2;
-  color: #239ce2;
+  border-bottom: 2px solid #fcc292;
+  color: #fcc292;
 }
 
 .body {
@@ -76,7 +76,7 @@
 }
 
 .chips .new {
-  color: #239ce2;
+  color: #fcc292;
   font-weight: bold;
   letter-spacing: 1px;
   cursor: pointer;
@@ -105,7 +105,7 @@
 }
 
 .chips .active {
-  background-color: #239ce2;
+  background-color: #fcc292;
 }
 
 .body button {

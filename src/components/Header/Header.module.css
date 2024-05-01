@@ -20,9 +20,24 @@
   letter-spacing: 1px;
 }
 
+
+.heading1 {
+  margin: 0 auto;
+  /* max-width: 80%; */
+  color: #000;
+  font-size: 3.3rem;
+  line-height: 4.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(238, 252, 255);
+  padding-top: 50px;
+}
+
 .heading span {
   background-clip: text;
-  background-image: linear-gradient(to right, #239ce2, #1369b9);
+  background-image: linear-gradient(to right, #fcc292, #fcc292);
   color: transparent;
 }
 
