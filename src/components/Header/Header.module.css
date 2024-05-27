@@ -7,6 +7,7 @@
   justify-content: space-evenly;
   gap: 30px;
   background-color: rgb(238, 252, 255);
+  background-color: #fcc292;
   min-height: 85vh;
 }
 
@@ -32,13 +33,14 @@
   display: flex;
   justify-content: center;
   background-color: rgb(238, 252, 255);
+  background-color: #fcc292;
   padding-top: 50px;
 }
 
 .heading span {
   background-clip: text;
   background-image: linear-gradient(to right, #fcc292, #fcc292);
-  color: transparent;
+  color: white;
 }
 
 .right img {
