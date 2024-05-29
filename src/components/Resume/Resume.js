@@ -48,7 +48,7 @@ const Resume = forwardRef((props, ref) => {
           info.workExp?.sectionTitle ? "" : styles.hidden
         }`}
       >
-        <div className={styles.sectionTitle}>{info.workExp.sectionTitle}</div>
+        <div className={styles.sectionTitle}>{info.workExp?.sectionTitle}</div>
         <div className={styles.content}>
           {info.workExp?.details?.map((item) => (
             <div className={styles.item} key={item.title}>
@@ -111,7 +111,7 @@ const Resume = forwardRef((props, ref) => {
           info.project?.sectionTitle ? "" : styles.hidden
         }`}
       >
-        <div className={styles.sectionTitle}>{info.project.sectionTitle}</div>
+        <div className={styles.sectionTitle}>{info.project?.sectionTitle}</div>
         <div className={styles.content}>
           {info.project?.details?.map((item) => (
             <div className={styles.item}>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactToPrint from "react-to-print";
 import { ArrowDown } from "react-feather";
 
@@ -7,9 +7,11 @@ import Resume from "../Resume/Resume";
 
 import styles from "./Body.module.css";
 
+
+
 function Body() {
   const colors = ["#239ce2", "#48bb78", "#0bc5ea", "#a0aec0", "#ed8936"];
-  const sections = {
+  const sectionss = {
     basicInfo: "Basic Info",
     workExp: "Work Experience",
     project: "Projects",
@@ -18,6 +20,17 @@ function Body() {
     summary: "Summary",
     other: "Other",
   };
+
+  let [sections,setSections] = useState({
+    basicInfo: "Basic Info",
+    workExp: "Work Experience",
+    project: "Projects",
+    education: "Education",
+    achievement: "Achievements",
+    summary: "Summary",
+    other: "Other",
+  });
+  let [showContent,setShowContent] = useState(false)
   const resumeRef = useRef();
 
   const [activeColor, setActiveColor] = useState(colors[0]);
@@ -59,8 +72,47 @@ function Body() {
     },
   });
 
+
+  useEffect(() => {
+    const experiencePrompt = () => {
+      const response = window.prompt('Do you have any job experience or projects? (Yes/No)');
+      if (response !== null) {
+        if (response.toLowerCase() === 'yes') {
+          setSections({
+            basicInfo: "Basic Info",
+            workExp: "Work Experience",
+            project: "Projects",
+            education: "Education",
+            achievement: "Achievements",
+            summary: "Summary",
+            other: "Other",
+          })
+          setShowContent(true);
+        } else if (response.toLowerCase() === 'no') {
+          setSections({
+            basicInfo: "Basic Info",
+            workExp: "",
+            project: "",
+            education: "Education",
+            achievement: "Achievements",
+            summary: "Summary",
+            other: "Other",
+          })
+          setShowContent(true);
+        } else {
+          // Invalid input, prompt again
+          alert("Invalid Input, Please enter Yes or No")
+          experiencePrompt();
+        }
+      }
+    };
+
+    experiencePrompt();
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <>
+    {showContent && <div className={styles.container}>
       <p className={styles.heading}>Resume Builder</p>
       <div className={styles.toolbar}>
         <div className={styles.colors}>
@@ -99,7 +151,9 @@ function Body() {
           activeColor={activeColor}
         />
       </div>
-    </div>
+    </div>}
+    </>
+    
   );
 }
 
